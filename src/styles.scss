@@ -1,0 +1,25 @@
+@use "@angular/material" as mat;
+@use "./custom-theme.scss" as custom-theme;
+@include mat.all-component-themes(custom-theme.$app-theme);
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

@@ -1,0 +1,37 @@
+<div class="header pb-2">
+  <div class="header__logo d-flex align-items-center">
+    <img src="../../../assets/icons/book-stack.png" alt="logo" />
+    <p class="header__logo-text">BookShelf</p>
+  </div>
+  <hr class="border border-dark" />
+  <div class="header__content">
+    <div class="header__search position-relative">
+      <input
+        class="header__search-field shadow border-0"
+        type="text"
+        placeholder="Enter book name..."
+      />
+      <mat-icon class="position-absolute header__search-icon" color="primary"
+        >search</mat-icon
+      >
+    </div>
+    <div class="header__auth d-flex">
+      <button
+        class="cursor-point"
+        mat-raised-button
+        color="primary"
+        [routerLink]="'auth/login'"
+      >
+        Login
+      </button>
+      <button
+        class="cursor-pointer"
+        mat-button
+        color="primary"
+        [routerLink]="'auth/register'"
+      >
+        Register
+      </button>
+    </div>
+  </div>
+</div>
