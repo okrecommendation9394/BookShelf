@@ -2,6 +2,7 @@
 @use "./custom-theme.scss" as custom-theme;
 @include mat.all-component-themes(custom-theme.$app-theme);
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "ngx-toastr/toastr";
 
 * {
   box-sizing: border-box;
@@ -22,4 +23,4 @@ body {
 }
 
 /* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";

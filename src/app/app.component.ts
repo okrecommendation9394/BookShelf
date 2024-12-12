@@ -4,6 +4,8 @@ import { SharedHeaderComponent } from './shared/shared-header/shared-header.comp
 import { AuthModule } from './auth/auth.module';
 import { BooksService } from './services/books/books.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth/auth.service';
+import { FirebaseUser } from './models/firebase-user.model';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,16 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'bookshelf';
+export class AppComponent implements OnInit {
+  public user: FirebaseUser | undefined;
+  public name: string | undefined;
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe((user) => {
+      const userCredentials = JSON.parse(user?.displayName as any);
+      this.user = userCredentials;
+      this.name = userCredentials.firstName;
+    });
+  }
 }
