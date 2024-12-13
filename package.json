@@ -26,11 +26,8 @@
     "book-shelf": "file:",
     "bootstrap": "^5.3.3",
     "firebase": "^11.0.2",
-    "jquery": "^3.7.1",
-    "ngx-slick-carousel": "^17.0.0",
     "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
-    "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

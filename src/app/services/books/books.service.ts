@@ -22,8 +22,8 @@ export class BooksService {
   retrieveBooksBasedOnCategory(
     category: string,
     amount: number
-  ): Observable<BookEntity> {
-    return this.http.get<BookEntity>(
+  ): Observable<any> {
+    return this.http.get(
       `${env.BOOKS_BASE_URL}?q=subject:${category}&maxResults=${amount}&key=${env.BOOKS_API}`
     );
   }

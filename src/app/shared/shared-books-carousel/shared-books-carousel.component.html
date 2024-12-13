@@ -1,1 +1,7 @@
-<div></div>
+<ng-container>
+  <div class="" *ngFor="let slide of slides">
+    <div>{{ slide.title }}</div>
+    <div>{{ slide.authors[0] }}</div>
+    <img src="{{ slide.imageLinks.thumbnail }}" alt="" />
+  </div>
+</ng-container>

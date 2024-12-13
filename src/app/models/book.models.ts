@@ -13,30 +13,32 @@ export interface IndustryIdentifier {
   identifier: VolumeId;
 }
 
+export interface VolumeInfo {
+  title: string;
+  authors: string[];
+  printType: string;
+  pageCount: number;
+  description: string;
+  publisher: string;
+  publishedDate: string;
+  categories: string[];
+  language: string;
+  imageLinks: {
+    thumbnail?: URL;
+    smallThumbnail?: URL;
+    small?: URL;
+    medium?: URL;
+    large?: URL;
+    extraLarge?: URL;
+  };
+}
+
 export interface BookEntity {
   id: VolumeId;
   etag?: string;
   selfLink?: URL;
-  volumeInfo: {
-    title: string;
-    authors: string[];
-    printType: string;
-    pageCount: number;
-    description: string;
-    publisher: string;
-    publishedDate: string;
-    categories: string[];
-    language: string;
-    imageLinks: {
-      thumbnail?: URL;
-      smallThumbnail?: URL;
-      small?: URL;
-      medium?: URL;
-      large?: URL;
-      extraLarge?: URL;
-    };
-    averageRating?: number;
-    ratingsCount?: number;
-    industryIdentifiers?: IndustryIdentifier[];
-  };
+  volumeInfo: VolumeInfo;
+  averageRating?: number;
+  ratingsCount?: number;
+  industryIdentifiers?: IndustryIdentifier[];
 }

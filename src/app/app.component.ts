@@ -22,9 +22,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getCurrentUser().subscribe((user) => {
-      const userCredentials = JSON.parse(user?.displayName as any);
-      this.user = userCredentials;
-      this.name = userCredentials.firstName;
+      if (user) {
+        const userCredentials = JSON.parse(user?.displayName as any);
+        this.user = userCredentials;
+        this.name = userCredentials.firstName;
+      }
     });
   }
 }
