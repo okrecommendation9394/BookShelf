@@ -12,10 +12,10 @@ export class BooksService {
 
   getBooks() {}
 
-  retrieveBook(volumeId: VolumeId, bla: string): Observable<BookEntity> {
+  retrieveBook(volumeId: VolumeId): Observable<BookEntity> {
     // return this.http.get<BookEntity>(`${env.BOOKS_BASE_URL}/${volumeId}`);
     return this.http.get<BookEntity>(
-      `${env.BOOKS_BASE_URL}?q=${bla}&maxResults=5&key=${env.BOOKS_API}`
+      `${env.BOOKS_BASE_URL}?q=${volumeId}&maxResults=5&key=${env.BOOKS_API}`
     );
   }
 

@@ -41,4 +41,5 @@ export interface BookEntity {
   averageRating?: number;
   ratingsCount?: number;
   industryIdentifiers?: IndustryIdentifier[];
+  refNo?: any;
 }

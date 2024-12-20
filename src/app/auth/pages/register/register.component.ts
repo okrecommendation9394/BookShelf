@@ -24,7 +24,10 @@ export class RegisterComponent {
       firstName: this.fb.control('', [Validators.required]),
       lastName: this.fb.control('', [Validators.required]),
       email: this.fb.control('', [Validators.required, Validators.email]),
-      password: this.fb.control('', [Validators.required]),
+      password: this.fb.control('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
   }
 
@@ -34,7 +37,6 @@ export class RegisterComponent {
 
   public showLoadingMessage() {
     this.toastr.info('Loading...', 'Please Wait', {
-      disableTimeOut: true,
       closeButton: true,
       tapToDismiss: false,
       progressBar: true,
@@ -45,21 +47,27 @@ export class RegisterComponent {
   }
 
   register() {
-    this.showLoadingMessage();
-    const { email, password, firstName, lastName, entityNo } =
-      this.registerForm.value;
-    // if (email && password && firstName && lastName && entityNo)
-    this.auth
-      .register(email, password, firstName, lastName, entityNo)
-      .pipe(
-        catchError((err) => {
-          this.toastr.error(err.message);
-          return of(err);
-        })
-      )
-      .subscribe(() => {
-        this.hideLoadingMessage();
-        this.router.navigate(['/dashboard']);
-      });
+    // this.showLoadingMessage();
+    const { email, password, firstName, lastName } = this.registerForm.value;
+    if (email && password && firstName && lastName) {
+      this.auth
+        .register(email, password, firstName, lastName)
+        .pipe
+        // catchError((err) => {
+        //   this.toastr.error(err.message);
+        //   return of(err);
+        // })
+        ()
+        .subscribe({
+          next: (user) => {
+            console.log(user, ' user form sbs');
+            this.router.navigate(['/auth/login']);
+            this.toastr.success('account was created');
+          },
+          error: (err) => {
+            this.toastr.error(err.message);
+          },
+        });
+    }
   }
 }

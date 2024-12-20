@@ -3,6 +3,7 @@
 @include mat.all-component-themes(custom-theme.$app-theme);
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 @import "ngx-toastr/toastr";
+@import "bootstrap/scss/bootstrap";
 
 * {
   box-sizing: border-box;
@@ -22,5 +23,14 @@ body {
   cursor: pointer;
 }
 
+.font-italic {
+  font-style: italic;
+}
+
+.font-weight-bold {
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
 /* Importing Bootstrap SCSS file. */
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';

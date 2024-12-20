@@ -1,7 +1,7 @@
 <div class="header pb-2">
   <div class="header__logo d-flex align-items-center">
     <img src="../../../assets/icons/book-stack.png" alt="logo" />
-    <p class="header__logo-text">BookShelf</p>
+    <p class="header__logo-text cursor-pointer" routerLink="">BookShelf</p>
   </div>
   <hr class="border border-dark" />
   <div class="header__content">
@@ -37,7 +37,9 @@
         </button>
       </div>
       <div class="d-flex align-items-center gap-3">
-        <div *ngIf="user$ | async as user">Hello {{ name }}</div>
+        <div *ngIf="user$ | async as user" class="font-weight-normal">
+          Hello, {{ user?.displayName | capitalize }}
+        </div>
         <button
           *ngIf="user$ | async"
           class="cursor-pointer"

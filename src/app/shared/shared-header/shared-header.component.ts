@@ -9,6 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { CommonModule } from '@angular/common';
 import { debounceTime, Observable } from 'rxjs';
 import { User as FirebaseUser } from 'firebase/auth';
+import { CapitalizePipe } from '../../pipes/capitalize.pipe';
 
 @Component({
   selector: 'app-shared-header',
@@ -22,17 +23,17 @@ import { User as FirebaseUser } from 'firebase/auth';
     MatFormFieldModule,
     RouterLink,
     RouterOutlet,
+    CapitalizePipe,
   ],
   templateUrl: './shared-header.component.html',
   styleUrl: './shared-header.component.scss',
 })
 export class SharedHeaderComponent implements OnInit {
   constructor(public authService: AuthService, private router: Router) {}
-  public user$: Observable<FirebaseUser | unknown> | undefined;
-  @Input() name: string | undefined;
+  public user$: Observable<FirebaseUser> | undefined;
 
   ngOnInit(): void {
-    this.user$ = this.authService.getCurrentUser();
+    this.user$ = this.authService.getCurrentUser() as any;
   }
 
   logout() {

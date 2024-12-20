@@ -4,4 +4,8 @@ export enum BookCategories {
   EASTER = 'easter',
   FICTION = 'fiction',
   FANTASY = 'fantasy',
+  ROMANCE = 'romance',
+  HORROR = 'horror',
+  READ = 'read',
+  WANT_TO_READ = 'wanted',
 }
